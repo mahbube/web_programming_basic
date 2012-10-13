@@ -15,25 +15,26 @@ body{
 
 div.container{
 	width  : 950px;
-	margin : 0 auto;
+	margin : 20px auto;
 }
 
 div.gallery{
 	
 }
-
 div.gallery a{
 	position: absolute;
-	left : 0px; /* start animation point */
-	top  : 1000px;
+	left : 10px; /* start animation point */
+	top  : -200px;
 	display : block;
 	border  : solid white;
 	border-width  : 4px 4px 20px 4px;
+	z-index: 0;
 }
 
 div.gallery img{
 	width  :120px; /* for netschool performance */
 	height :auto;
+	display : block;
 }
 
 div.gallery a:hover{
@@ -41,6 +42,10 @@ div.gallery a:hover{
 	opacity : 0.98;
 }
 
-div.gallery img{
-	display : block;
+div.gallery a p{
+	position: absolute;
+	z-index: 200;
+	background-color: #fff;
+	color: green;
+	display: none;
 }
