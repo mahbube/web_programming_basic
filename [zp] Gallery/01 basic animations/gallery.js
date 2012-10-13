@@ -22,19 +22,56 @@ $(function(){
 		},aniDelay);
 		aniDelay += aniStep;
 	});
+	pics.click(function(){return false;})
 
-	pics.click(function(){
-		$(this).animate({
+	pics.on('click','img',function(){
+		pics.each(function(){
+			if($(this).css('left')=='100px'){
+				$(this).animate({
+					left : Math.random(0,maxWidth - 200 ),
+					top : Math.random(0,maxHeight -200 ),
+					zIndex:0
+				})
+				$('img',$(this).parent()).animate({
+					width:120
+				},1000);
+				
+				$('p',$(this).parent()).css(//try to use siblings
+					'display' , 'none'
+				);
+			}
+			
+		})
+		//$(this).parent().append("<p>close</p>");
+
+		$(this).parent().animate({
 			left:100,
-			top:100
+			top:100,
+			zIndex :100,
 		},1000);
 
-		$('img',this).animate({
+		$('img',$(this).parent()).animate({//try to use siblings
 			width:500
 		},1000);
 
-		return false;
+		$('p',$(this).parent()).css(//try to use siblings
+			'display' , 'block'
+		);		
 	});
+	pics.on('click','p',function(){
+		$(this).parent().animate({
+			left : Math.random(0,maxWidth - 200 ),
+			top : Math.random(0,maxHeight -200 ),
+			zIndex :0,
+		})
+		$('img',$(this).parent()).animate({
+			width:120
+		},1000);
+
+		$('p',$(this).parent()).css(//try to use siblings
+			'display' , 'none'
+		);
+	})
 });
 
 
