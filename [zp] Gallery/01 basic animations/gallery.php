@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="gallery.js"></script>
 </head>
 <body>
-	<div class="container">
+	<div class="container" >
 		<div class="gallery">
 			<?php
 				$images_path = "../images";
@@ -19,11 +19,15 @@
 					$exp = explode('.', $img);
 					$img_type = end($exp);
 					if($img_type == 'jpg')
-						echo "<a href='$images_path/$img'><img src='$images_path/small/$img' alt='Image Gallery' /></a>";
+						echo "<a href='$images_path/$img' >
+							<img src='$images_path/small/$img' alt='Image Gallery'  />
+							<p>close</p>
+						</a>";
 				}
 			?>
 
 		</div>
+		
 	</div>
 </body>
 </html>
